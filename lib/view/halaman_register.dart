@@ -228,6 +228,8 @@ class _HalamanRegisterState extends State<HalamanRegister> {
 
                       // Button Register
                       GestureDetector(
+                      key: Key('registerr'),
+
                         child: Container(
                           alignment: Alignment.center,
                           width: 250,
