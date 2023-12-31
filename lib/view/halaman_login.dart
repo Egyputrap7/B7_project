@@ -145,6 +145,7 @@ class _HalamanLoginState extends State<HalamanLogin> {
                       Container(
                         width: 280,
                         child: TextFormField(
+                          key: Key('emailFormField'),
                           keyboardType: TextInputType.visiblePassword,
                           obscureText: eyeToggle,
                           decoration: InputDecoration(

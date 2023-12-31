@@ -40,8 +40,20 @@ void main() {
       await tester.pumpAndSettle();
       await Future.delayed(const Duration(seconds: 2));
 
-      // Expect to find the HomeAdmin widget on successful login
-      expect(find.byType(MainPage), findsOneWidget);
+       await tester.tap(find.text('Profile'));
+
+    // Wait for the navigation to complete.
+    await tester.pumpAndSettle();
+
+    // Expect to find the 'Profile' screen or widget, adjust this based on your app's navigation logic.
+    expect(find.text('Profile'), findsOneWidget);
+     await tester.pumpAndSettle();
+     await Future.delayed(const Duration(seconds: 2));
+     await tester.tap(find.text('Logout'));
+     await tester.pumpAndSettle();
+     await Future.delayed(const Duration(seconds: 2));
+     expect(find.byType(HalamanLogin), findsOneWidget);
+       await tester.pumpAndSettle();
     });
   });
 }

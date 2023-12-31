@@ -40,7 +40,11 @@ void main() {
       await tester.pumpAndSettle();
       await Future.delayed(const Duration(seconds: 2));
 
-      // Expect to find the HomeAdmin widget on successful login
+      await tester.tap(find.byIcon(Icons.delete).first);
+      await tester.pumpAndSettle();
+      await Future.delayed(const Duration(seconds: 2));
+      
+      // Expect to find the HomeAdmin widget on successful delete
       expect(find.byType(MainPage), findsOneWidget);
     });
   });

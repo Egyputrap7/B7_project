@@ -1,3 +1,4 @@
+import 'package:final_exam_project/view/admin/add_matakuliah.dart';
 import 'package:final_exam_project/view/halaman_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -39,8 +40,28 @@ void main() {
 
       await tester.pumpAndSettle();
       await Future.delayed(const Duration(seconds: 2));
+//add matakuliah
+       await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextFormField).at(0), 'PABD');
+      await Future.delayed(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextFormField).at(1), 'ASRONI');
+      await Future.delayed(const Duration(seconds: 2));
+      await tester.enterText(find.byType(TextFormField).at(2), '3');
+      await Future.delayed(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Submit'));
+      await Future.delayed(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
+      expect(find.text('Berhasil Menambahkan data'), findsOneWidget);
+      await tester.pumpAndSettle();
+      await Future.delayed(const Duration(seconds: 2));
+      await tester.tap(find.text('OK'));
+      await tester.pumpAndSettle();
+      await Future.delayed(const Duration(seconds: 2));
 
-      // Expect to find the HomeAdmin widget on successful login
+      // Expect to find the HomeAdmin widget on successful add data
       expect(find.byType(MainPage), findsOneWidget);
     });
   });
